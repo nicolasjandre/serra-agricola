@@ -6,7 +6,7 @@ function imgSlider(vegetable){
 }
 
 
-// Troca a imagem para ficar de acordo com o vegetal escolhido
+// Troca a cor de fundo para ficar de acordo com o vegetal escolhido
 
 function colorChange(color){
     const circle = document.querySelector('.circle')

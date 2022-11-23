@@ -33,7 +33,7 @@ header .logo {
     max-width: 150px;
 }
 
-header ul {
+header nav ul {
     position: relative;
     display: flex;
     align-items: center;
@@ -51,6 +51,34 @@ header ul li a {
     text-decoration: none;
 }
 
+button#mobileButton {
+    padding: 1rem 0;
+    background: none;
+    border: none;
+    display: none;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 3rem;
+    height: 4px;
+    background-color: black;
+    opacity: 0.8;
+    margin: 6px 0;
+    transition: 0.4s;
+ }
+
+#nav.active .bar1 {
+    transform: translate(0, 10px) rotate(-45deg);
+}
+  
+#nav.active .bar2 {
+    opacity: 0;
+}
+  
+#nav.active .bar3 {
+    transform: translate(0, -10px) rotate(45deg);
+}
+
 .content .textBox {
     position: relative;
     max-width: 662px;
@@ -65,14 +93,14 @@ header ul li a {
     align-items: center;
 }
 
-.content .textBox h2 {
+.content .textBox h1 {
     color: #333;
     font-size: 4em;
     line-height: 1.4em;
     font-weight: 500;
 }
 
-.content .textBox h2 span {
+.content .textBox h1 span {
     color: #017143;
     font-size: 1.2em;
     font-weight: 900;
@@ -122,9 +150,13 @@ header ul li a {
     cursor: pointer;
 }
 
+.thumb li img {
+    transition: 0.5s;
+}
+
 .thumb li img:hover {
     transform: translatey(-15px);
-    transition: 0.5s;
+    
 }
 
 .sci {
@@ -163,8 +195,24 @@ header ul li a {
     transition: all ease-in 0.5s;
 }
 
-.circle, .button, span {
-    transition: all ease-in .6s;
+.circle, span {
+    transition: background .6s;
+}
+
+a.button {
+    transition: background .3s;
+}
+
+a.button:hover {
+    transform: scale(1.05);
+}
+
+#button-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    gap: 10px;
 }
 
 @media (max-width: 1590px) {
@@ -172,4 +220,123 @@ header ul li a {
         max-width: 570px;
     }
 
+}
+
+@media (max-width: 1381px) {
+    .content .textBox h1 {
+        font-size: 3rem;
+    }
+    img.verdurasLayout {
+        width: auto;
+        height: 35vw;
+    }
+}
+
+@media (max-width: 1192px) {
+    .content .textBox h1 {
+        font-size: 2.5rem;
+    }
+    img.verdurasLayout {
+        width: auto;
+        height: 32vw;
+    }
+}
+
+@media (max-width: 991px) {
+    header {
+        padding: 20px;
+    }
+    header .logo {
+        max-width: 90px;
+    }
+    #nav ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 132px;
+        z-index: 1000;
+        left: 0;
+        right: 0;
+        justify-content: center;
+        background: white;
+        height: 0;
+        visibility: hidden;
+        overflow-y: hidden;
+        transition: .6s;
+    }
+    
+    #nav ul li {
+        padding: 1rem;
+    }
+
+    #nav.active ul {
+        visibility: visible;
+        height: 30vh;
+    }
+
+    button#mobileButton {
+        display: block;
+    }
+    section {
+        padding: 20px 20px 120px;
+    }
+    .content {
+        flex-direction: column;
+        margin-top: 100px;
+    }
+    .content .textBox {
+        max-width: 100%;
+    }
+    .content .textBox h1 {
+        font-size: 2.5rem;
+    }
+    .circle {
+        clip-path: circle(calc(30vw + 300px) at center bottom);
+    }
+    .content .imgBox {
+        width: auto;
+        height: auto;
+        justify-content: center;
+    }
+    img.verdurasLayout {
+        width: 80%;
+        height: auto;
+        margin: 4rem auto 2rem;
+    }
+    ul.thumb img {
+        height: 15vw;
+        max-height: 100px;
+        min-height: 70px;
+        width: auto;
+    }
+    ul.sci {
+        background-color: #017143;
+        right: 0;
+        border-radius: 8px 0 0 8px;
+        transition: background .6s;
+    }
+    .textBox {
+        text-align: center;
+    }
+}
+
+@media (max-width: 577px) {
+    .circle {
+        clip-path: circle(calc(15vw + 300px) at center bottom);
+    }
+}
+
+@media (max-width: 413px) {
+    .circle {
+        clip-path: circle(300px at center bottom);
+    }
+    ul.thumb img {
+        min-height: 60px;
+    }
+}
+
+@media (max-width: 319px) {
+    ul.thumb img {
+        min-height: 40px;
+    }
 }

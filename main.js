@@ -1,12 +1,17 @@
-// Troca a imagem de vegetal de fundo da página
+const mobileButton = document.getElementById('mobileButton')
+const activeNav = document.getElementById('nav')
+
+mobileButton.addEventListener('click', toggleMenu)
+
+function toggleMenu() {
+  activeNav.classList.toggle('active')
+}
 
 function imgSlider(vegetable){
     const img = document.querySelector('.verdurasLayout')
     img.src = vegetable
 }
 
-
-// Troca a cor de fundo para ficar de acordo com o vegetal escolhido
 
 function colorChange(color){
     const circle = document.querySelector('.circle')
@@ -15,6 +20,8 @@ function colorChange(color){
     span.style.color = color;
     const button = document.querySelector('.button')
     button.style.background = color;
+    const lateralIcons = document.querySelector('ul.sci')
+    lateralIcons.style.background = color;
 }
 
 
